@@ -1,12 +1,12 @@
-
 import React from 'react'
 import { getImage, getLookalike } from '../lib/api'
 import Spinner from './Spinner'
+import Footer from './Footer'
 
 class Result extends React.Component {
   state = {
     stockImages: [
-      'https://media.newyorker.com/photos/5d67f40fa15e8f0009d9a094/2:1/w_2560,h_1280,c_limit/190909_r34891.jpg',
+      'https://www.chicagotribune.com/resizer/3U1sOcVhiya2oB1GGaSO2GfYD8A=/415x508/top/arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/NKTE7ZA6RJAAPNMPH4XN2IRRTA.jpg',
       'https://www.biography.com/.image/t_share/MTU1MTU2MTM5OTc2MTczNTI2/-photo-by-max-mumby-indigo-getty-images-square.jpg',
       'https://cdn.entertainmentdaily.com/2019/07/13105634/coverimages31710293-e1563011827473.jpg',
       'https://www.thesun.co.uk/wp-content/uploads/2020/04/NINTCHDBPICT000577901903-1.jpg',
@@ -18,7 +18,6 @@ class Result extends React.Component {
     lookalike: '',
     celebImage: ''
   }
-
   async componentDidMount() {
     console.log('mouted')
     try {
@@ -29,28 +28,25 @@ class Result extends React.Component {
       this.shufflePictures()
       // this.setState({ lookalike:  })
       this.getCelebName()
-      
     } catch (err) {
       console.log(err)
     }
   }
-  
   shufflePictures = () => {
     let i = 0
     const shuffle = setInterval(() => {
-      if (this.state.lookalike){
+      if (this.state.lookalike) {
         clearInterval(shuffle)
         return
-      } 
+      }
       this.setState({ celebImage: this.state.stockImages[i] })
-      if (i === this.state.stockImages.length - 1){
+      if (i === this.state.stockImages.length - 1) {
         i = 0
       } else {
         i++
       }
     }, 300)
   }
-
 
   getCelebName = async () => {
     try {
@@ -81,7 +77,11 @@ class Result extends React.Component {
       console.log(err.response)
     }
   }
-
+  spinner = () => {
+    if (!this.state.celebImage){
+      return Spinner
+    }
+  }
 
   handleClick = () => {
 
@@ -91,23 +91,31 @@ class Result extends React.Component {
   render() {
     console.log('state', this.state)
 
-    if (!this.state.userImage) return <Spinner />
+    if (!this.state.userImage) return null
     return (
       <>
-        <div className="columns">
-          <div className="column is-one-quarter">
+        <div className="header">
+          <h1>Your <span>Exhaustive</span> and <span>Exhilarating</span> Celebrity Generator</h1>
+        </div>
+        <div className="name-section">
+          <h1>Your Lookalike is: <span>{this.state.lookalike}</span></h1>
+        </div>
+        <div className="columns is-centered">
+          <div className="column ">
             <figure className="image is-1by1">
               <img src={this.state.userImage} alt={this.state.userImage} />
             </figure>
           </div>
-          <div className="column is-one-quarter">
+          <div className="column">
             <figure className="image is-1by1">
+              {this.spinner()}
               <img src={this.state.celebImage} alt={this.state.celebImage} />
             </figure>
           </div>
         </div>
-        <h1>Your Lookalike is: {this.state.lookalike}</h1>
-        <button className="button is-danger is-half" onClick={this.handleClick}>Try again</button>
+
+        <button className="button is-danger is-fullwidth" onClick={this.handleClick}>Try again</button>
+        <Footer />
 
       </>
     )
@@ -116,4 +124,3 @@ class Result extends React.Component {
 }
 
 export default Result
-

@@ -1,8 +1,7 @@
 import React from 'react'
 import axios from 'axios'
-import Result from './Result'
 import { Link } from 'react-router-dom'
-
+import Footer from './Footer'
 
 class Home extends React.Component {
 
@@ -19,23 +18,28 @@ class Home extends React.Component {
     const errors = { ...this.state.errors, [event.target.name]: '' }
 
     this.setState({ formData, errors })
+    console.log(formData)
   }
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log('this is handleSubmit fnuction', this.state.formData.userImage)
+    console.log('this is handleSubmit fnuction', this.state.formData)
   }
 
   handleClick = () => {
-    // this.props.history.push('/result/')
-    console.log('this is the handleClick funtion', this.state.formData.userImage)
+    this.props.history.push('/result')
+    console.log('this is the handleClick funtion', this.state.formData)
   }
 
   render() {
     const { formData } = this.state
     return (
+
       <div className="container">
-        <section className="Hero hero is-danger is-bold">
+        <div className="header">
+          <h1>Your <span>Exhaustive</span> and <span>Exhilarating</span> Celebrity Generator</h1>
+        </div>
+        <section className="Hero hero is-bold">
           <div className="hero-body">
             <div className="container has-text-centered">
               <h1 className="title is-1 has-text-white">
@@ -60,6 +64,7 @@ class Home extends React.Component {
               placeholder="photo url goes here ..."
 
             />
+
             <span className="icon is-small is-right">
               <i className="fas fa-check"></i>
             </span>
@@ -67,14 +72,20 @@ class Home extends React.Component {
         </div>
 
         <div className="container">
-          <Link to={{ pathname: '/result', state: { userImage: this.state.formData.userImage } }} className="button is-link is-danger is-large is-fullwidth">Go find my celebrity </Link>
-        </div>
+          <transition
+            name="fade"
+            mode="out-in"
+          >
 
+            <Link to={{ pathname: '/result', state: { userImage: this.state.formData.userImage } }} className="button is-link is-danger is-large is-fullwidth">Go find my celebrity </Link>
+          </transition>
+        </div>
+        <Footer />
       </div>
     )
+
   }
 }
-
 
 
 

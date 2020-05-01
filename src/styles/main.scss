@@ -1,12 +1,134 @@
 @import '~bulma/bulma.sass';
 
+:root {
+	--green:rgba(110, 235, 131);
+	--yellow: rgba(228, 255, 26);
+	--blue: rgba(27, 231, 255);
+	--orange: rgb(255, 87, 20);
+
+	--light-grey: #eee;
+	--grey: #999;
+	--dark-grey: #666;
+	--black:#222;
+	--black-50:rgba(0, 0, 0, 0.5);
+
+	--brand-font:'Baloo 2', sans-serif;
+
+	--yellow-gradient:linear-gradient( -75deg,  var(--green), var(--yellow) 90% );
+	--green-gradient:linear-gradient( -75deg, var(--green) 10%,  var(--blue) 90% );
+
+	background-color: black;
+}
+
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+
+.header {
+	background-color: black;
+	margin: 0 auto;
+	color: white;
+	font-weight: bold;
+	font-size: 35px;
+	height: 85px;
+	text-align: center;
+		span {
+			text-decoration: underline;
+		}
+}
 
 .Hero {
+	margin-bottom: 10px;
+	height: 350px;
+
 	.hero-body {
 		background-image: url('https://boostlikes-bc85.kxcdn.com/blog/wp-content/uploads/2013/06/celebrities.jpg');
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center center;
+		text-shadow: 1px 1px 1px var(--dark-grey);
+
 	}
 }
 
+
+.columns {
+
+	.column {
+		margin: 50px;
+		box-shadow: 6px 6px 50px var(--blue);
+    border-color:var(--light-grey);
+    max-width: 400px;
+	}
+	img {
+		background-size: cover;
+		background-position: center center;
+		height: max-content;
+	}
+}
+
+.name-section {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	font-size: 25px;
+	height: 85px;
+	text-align: center;
+	span {
+		text-decoration: underline;
+	}
+}
+
+.button {
+	margin-top: 40px;
+	margin-bottom: 80px;
+	padding: 15px 50px 15px 90px; 
+	text-shadow: 1px 1px 1px var(--orange);
+	font-size: 30px;
+	font-family: var(--brand-font);
+	text-transform: uppercase;
+	background-image: var(--green-gradient);
+	border:1px solid var(--grey);
+	box-shadow:4px 4px 10px var(--black-50);
+	border-radius:20px;
+	cursor: pointer;
+
+	transition: all 0.3s ease-in-out;
+	
+}
+.button:hover {
+
+	color: var(--black);
+	text-shadow:1px 1px 1px var(--light-grey);
+
+background-image: var(--yellow-gradient);
+box-shadow: 6px 6px 50px var(--green);
+border-color:var(--light-grey);
+transform: scale(1);
+
+	}
+
+	.input:hover {
+		box-shadow: 6px 6px 50px var(--blue);
+border-color:var(--light-grey);
+
+	}
+
+
+.loading {
+	text-align: center;
+}
+
+.footer {
+	background-color: black;
+	color: white;
+	text-align: center;
+	font-size: 15px;
+}
