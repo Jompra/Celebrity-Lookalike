@@ -1,8 +1,20 @@
 import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-const App = () => {
+
+
+import Home from './Components/Home'
+import Result from './Components/Result'
+
+function App() {
   return (
-    <h1>Hello World</h1>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/result" component={Result} />
+      </Switch>
+
+    </BrowserRouter>
   )
 }
 
