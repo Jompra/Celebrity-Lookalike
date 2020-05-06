@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Footer from './Footer'
 
@@ -42,7 +41,7 @@ class Home extends React.Component {
         <section className="Hero hero is-bold">
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title is-1 has-text-white">
+              <h1 className="title is-1">
                 Celebrity Generator
 				</h1>
               <p className="subtitle has-text-white is-4">
@@ -72,13 +71,16 @@ class Home extends React.Component {
         </div>
 
         <div className="container">
-          <transition
-            name="fade"
-            mode="out-in"
-          >
 
-            <Link to={{ pathname: '/result', state: { userImage: this.state.formData.userImage } }} className="button is-link is-danger is-large is-fullwidth">Go find my celebrity </Link>
-          </transition>
+
+          <Link to={{
+            pathname: '/result',
+            state: {
+              userImage: this.state.formData.userImage
+              
+            }
+          }} className="button is-link is-danger is-large is-fullwidth">Go find my celebrity </Link>
+
         </div>
         <Footer />
       </div>
