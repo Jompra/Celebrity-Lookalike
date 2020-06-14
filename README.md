@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This react app was created for my second General Assembly project. This project was completed hackathon style in 48 hrs with [Eleanor Byass](https://github.com/ebyass "Eleanor's Github"). The project is deployed with Netlify here. This app was great fun so please feel free to have a go [here](https://find-your-celebrity-lookalike.netlify.app "Clebrity Lookalike Generator")
+This react app was created for my second General Assembly project. This project was completed hackathon style in 48 hours with [Eleanor Byass](https://github.com/ebyass "Eleanor's Github"). The project is deployed with Netlify. This app was great fun so please feel free to have a go [here](https://find-your-celebrity-lookalike.netlify.app "Clebrity Lookalike Generator")
 
 * [Introduction](##Introduction)
 * [Contents](##Contents)
@@ -24,8 +24,10 @@ The basic function of the app is that a user provides us with a URL of their pho
 
 ## Using it Yourself
 To run this app on your local machine you will need to download or clone the files and then sign up for two APIs, The first is [Luxand Cloud](https://rapidapi.com/aboykov/api/luxand-cloud-face-recognition?endpoint=apiendpoint_188c3cc8-6f87-4558-a9c7-be772a5a7ccf) and the second is [Microsoft Azure](https://azure.microsoft.com/en-gb/free/search/?&ef_id=CjwKCAjw2a32BRBXEiwAUcugiISGAMerV2gAqqtH0Va-SKRbGl6PQg7R1nJVHepxe0Jw54XQ_vvbPRoCFH4QAvD_BwE:G:s&OCID=AID2000125_SEM_CjwKCAjw2a32BRBXEiwAUcugiISGAMerV2gAqqtH0Va-SKRbGl6PQg7R1nJVHepxe0Jw54XQ_vvbPRoCFH4QAvD_BwE:G:s&dclid=CjkKEQjw2a32BRCwkfevsaHM07IBEiQAOHSxZRMAtT9DP8wOMrB3t3Ey1nc54XpMnbMwqVuQT1vdQjnw_wcB). Add the keys for these services to a .env file so that it looks like this:
+```
 REACT_APP_AZURE_KEY = Azure API Key
 REACT_APP_RAPID_KEY = Rapid API Key
+```
 
 Then run:
 ```bash
@@ -52,7 +54,7 @@ A real win here was finding and using the Bing Search API, although the app coul
 We had some trouble getting the timing of everything to work. As we needed to take the data from an initial response and then pass this to another API getting the asynchronus functions to work as required was a challenge. Initially we set a timeout on searching for an image however we found that this was unnecessary in the end.
 
 ## Future Features
-Ideally we would have the user upload an image of themselves instead of provide a URL however we decided that this would add additonal image hosting requirements.
+Ideally we would have the user upload an image of themselves instead of provide a URL, however as this was simply a novelty web app we decided a URL would be sufficient enough.
 
 ## In Conclusion
 This was great fun to create and I think that we have a fun and useable app.
