@@ -25,7 +25,6 @@ class Result extends React.Component {
       console.log(this.props.location.state.userImage)
       console.log(this.state.userImage)
       this.shufflePictures()
-      // this.setState({ lookalike:  })
       this.getCelebName()
     } catch (err) {
       console.log(err)
@@ -55,8 +54,6 @@ class Result extends React.Component {
       console.log('response', res.data)
       this.setState({ lookalike: res.data.result[0].name })
       this.getCelebImage()
-      // return res.data.result[0].name
-      // console.log(this.state.lookalike)
     } catch {
       this.setState({ lookalike: 'No Idea, try another image' })
       this.setState({ celebImage: 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/woman-shrugging.png' })
