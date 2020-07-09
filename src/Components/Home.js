@@ -41,12 +41,8 @@ class Home extends React.Component {
         <section className="Hero hero is-bold">
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title is-1">
-                Celebrity Generator
-				</h1>
-              <p className="subtitle has-text-white is-4">
-                Who do you look like?
-				</p>
+              <h1 className="title is-1">Celebrity Generator</h1>
+              <p className="subtitle has-text-white is-4">Who do you look like?</p>
             </div>
           </div>
         </section>
@@ -77,7 +73,7 @@ class Home extends React.Component {
             pathname: '/result',
             state: {
               userImage: this.state.formData.userImage
-              
+
             }
           }} className="button is-link is-danger is-large is-fullwidth">Go find my celebrity </Link>
 
